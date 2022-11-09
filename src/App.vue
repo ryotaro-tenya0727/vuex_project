@@ -10,7 +10,7 @@ export default {
   name: 'app',
   methods: {
     increment: function () {
-      this.$store.commit('increment', 10);
+      this.$store.dispatch('incrementOne');
     },
   },
   computed: {

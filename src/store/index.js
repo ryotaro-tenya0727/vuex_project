@@ -7,10 +7,16 @@ export default new Vuex.Store({
   state: {
     count: 0,
   },
+
   mutations: {
-    increment: function (state, number) {
-      state.count = state.count + number;
+    increment: function (state) {
+      state.count++;
     },
   },
-  actions: {},
+  actions: {
+    incrementOne: function (context) {
+      // console.log(context);
+      context.commit('increment');
+    },
+  },
 });
