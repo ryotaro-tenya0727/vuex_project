@@ -1,22 +1,22 @@
 <template>
   <div id="app">
-    <p><button v-on:click="increment">UP</button></p>
-    <h1>Count:{{ count }}</h1>
+    <h1>ユーザ一覧</h1>
+    <div v-for="user in users" :key="user.id">
+      {{ user.name }}
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'app',
-  methods: {
-    increment: function () {
-      this.$store.dispatch('incrementOne');
+  computed: {
+    users: function () {
+      return this.$store.state.users;
     },
   },
-  computed: {
-    count: function () {
-      return this.$store.state.count;
-    },
+  mounted() {
+    this.$store.dispatch('getUsers');
   },
 };
 </script>
